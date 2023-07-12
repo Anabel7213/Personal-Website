@@ -7,7 +7,7 @@ app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/stylesheets"));
 app.use(express.static(__dirname + "/js"));
 
-const DB = process.env.DB.replace("<password>", process.env.DB_PASS);
+const DB = process.env.DB;
 mongoose
   .connect(DB, {
     useNewUrlParser: true,
