@@ -1,0 +1,294 @@
+@font-face {
+    font-family: 'Recoleta';
+    src: url('/assets/fonts/Recoleta-Regular.eot');
+    src: url('/assets/fonts/Recoleta-Regular.eot?#iefix') format('embedded-opentype'),
+        url('/assets/fonts/Recoleta-Regular.woff2') format('woff2'),
+        url('/assets/fonts/Recoleta-Regular.woff') format('woff'),
+        url('/assets/fonts/Recoleta-Regular.svg#Recoleta-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Recoleta';
+    src: url('/assets/fonts/Recoleta-SemiBold.eot');
+    src: url('/assets/fonts/Recoleta-SemiBold.eot?#iefix') format('embedded-opentype'),
+        url('/assets/fonts/Recoleta-SemiBold.woff2') format('woff2'),
+        url('/assets/fonts/Recoleta-SemiBold.woff') format('woff'),
+        url('/assets/fonts/Recoleta-SemiBold.svg#Recoleta-SemiBold') format('svg');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Recoleta';
+    src: url('/assets/fonts/Recoleta-Bold.eot');
+    src: url('/assets/fonts/Recoleta-Bold.eot?#iefix') format('embedded-opentype'),
+        url('/assets/fonts/Recoleta-Bold.woff2') format('woff2'),
+        url('/assets/fonts/Recoleta-Bold.woff') format('woff'),
+        url('/assets/fonts/Recoleta-Bold.svg#Recoleta-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+* {
+    font-family: 'Recoleta', Ariel; //not working properly in Safari, chosen as the most optimal fallback font
+    box-sizing:border-box;
+}
+html, body {
+    font-family: 'Recoleta', Ariel; //not working properly in Safari, chosen as the most optimal fallback font
+}
+
+//font mixins 
+@mixin font-xxxl {
+    font-size:6rem;
+    font-weight:bold;
+    @media (max-width:768px) {
+        font-size:4rem;
+    }
+}
+@mixin font-xxl {
+    font-size:4rem;
+    font-weight:bold;
+    @media (max-width:768px) {
+        font-size:3rem !important;
+    }
+}
+@mixin font-xl {
+    font-size:2.5rem;
+    font-weight:600;
+    @media (max-width:768px) {
+        font-size:2rem;
+    }
+}
+@mixin font-lg {
+    font-size:2rem;
+    font-weight:600;
+}
+@mixin font-md {
+    font-size:2rem;
+    font-weight:normal;
+    @media (max-width:768px) {
+        font-size:1.5rem;
+    }
+}
+@mixin font-sm {
+    font-size:1.5rem;
+    font-weight:normal;
+    @media (max-width:768px) {
+        font-size:1.3rem;
+    }
+}
+@mixin font-xs {
+    font-size:1.3rem;
+    font-weight:normal;
+    @media (max-width:768px) {
+        font-size:1rem;
+    }
+}
+//end font mixins
+
+//key variables 
+$off-white: #FFFDFA;
+$purple: #E6CCF5;
+$light-purple:#EADBF8;
+$yellow:#ECDE7D;
+$beige:#FBF4E9;
+$dark-gray:#2E3F4F;
+$pure-black:#000000;
+
+$standard-padding:.5rem 1.5rem;
+$standard-border:2px solid #2E3F4F;
+$section-margin:8rem auto;
+//end key variables
+
+//link mixin
+@mixin link-element {
+    @include font-sm;
+    text-decoration:none;
+    color:$pure-black;
+}
+
+//button mixins 
+@mixin primary-button {
+    @include font-sm;
+    padding:$standard-padding;
+    background-color:$light-purple;
+    border:$standard-border;
+    border-radius:.25rem;
+    box-shadow:4px 4px 0px 0px rgba(47, 66, 82, 1);
+
+    &:hover {
+        box-shadow:none;
+        transform:translateY(-.25rem);
+        transform:rotate(1deg);
+        transition:all .5s ease-out;
+    }
+
+    &:focus {
+        background-color:$purple;
+        transform:rotate(0deg);
+    }
+}
+@mixin secondary-button {
+    @include font-md;
+    border-bottom:3px solid $dark-gray;
+    text-decoration:none;
+
+    &:hover {
+        box-shadow:0px 3px 0px 0px $purple;
+        transform:translateY(-4px);
+        transition:all .5s ease-out;
+    }
+}
+@mixin tertiary-button {
+    @include link-element;
+
+    &:hover {
+        background-color:$yellow;
+        border-bottom:3px solid $dark-gray;
+        padding:0 .5rem;
+        box-shadow:0px 3px 0px 0px $purple;
+        transition:all .5s ease-out;
+    }
+}
+@mixin fixed-button ($position, $top) {
+    @include font-sm;
+    background-color:$yellow;
+    color:#2E3F4F;
+    border-bottom:8px solid #90821B;
+    box-shadow: 0px 0px 0px 10px $beige;
+    padding:1rem 2rem;
+    position:$position;
+    width:276px;
+    top:$top;
+    border-radius:100px;
+    z-index:2;
+    transition:all .5s ease-out; //REPEATS OFTEN MIGHT SUBSTITUTE
+
+    &:hover {
+        border:none;
+    }
+    @media (max-width:768px) {
+        width:200px;
+    }
+}
+//end button mixins
+
+//tag mixin 
+@mixin tag ($bg-color, $border-color, $shadow-color) {
+    @include font-xs;
+    padding:$standard-padding;
+    border-radius:100px;
+    box-shadow:0px 4px 0px 0px $shadow-color;
+    border:2px solid $border-color;
+    background-color: $bg-color;
+    &:hover {
+        cursor: pointer;
+        animation: swing 2s;
+    }
+}
+//animation swing
+@keyframes swing {
+    25% {
+        rotate:4deg;
+    }
+    50% {
+        rotate:-4deg;
+    }
+    75% {
+        rotate:4deg;
+    }
+}
+//end tag mixin
+
+//sticky mixin 
+@mixin sticky ($position, $top) {
+    padding: 2rem;
+    position: -webkit-sticky; /* Safari */
+    position:sticky;
+    background-color: $yellow;
+    border: 2px solid $dark-gray;
+    top:$top;
+    z-index:100;
+    height:100%;
+    width:45%;
+
+    h5 {
+        @include font-lg;
+    }
+    > div {
+        @include font-md;
+    }
+    @media (max-width:1200px) {
+        padding:2rem;
+        background-color:$yellow;
+        border:$standard-border;
+        width:100%;
+        position:relative;
+    }
+}
+//end sticky mixin
+
+//skill-item mixin 
+@mixin skill-item {
+    @include font-sm;
+    background-color:$off-white;
+    border:1px solid $dark-gray;
+    border-radius:4px;
+    padding:.5rem 2rem;
+
+    &:hover {
+        cursor: pointer;
+        animation: swing 1.5s;
+    }
+}
+//end skill-item mixin
+
+//card mixin 
+@mixin card ($rotation) {
+    border:$standard-border;
+    max-width:600px;
+    transform:$rotation;
+    border-radius:4px;
+    box-shadow:10px 10px 0px 0px $dark-gray;
+
+    &:hover {
+        background-color:$light-purple;
+        cursor: pointer;
+        box-shadow:none;
+        transform:rotate(0deg);
+        transition: all 0.5s ease-out;
+    }
+    @media (max-width:768px) {
+            width:100%;
+            transform:rotate(0deg) !important;
+            box-shadow:none;
+            border-left:none;
+            border-right:none;
+            border-bottom:none;
+            border-top:2px dashed $dark-gray;
+            margin:0 !important;
+            border-radius:0%;
+        }
+        @media (max-width:1200px) {
+            max-width:800px;
+        }
+        @media(min-width:1200px) and (max-width:1400px) {
+            max-width:500px;
+        }
+}
+//end card mixin
+
+//highlight mixin
+@mixin marker {
+    text-decoration: underline;
+    background-image: linear-gradient(transparent 50%, $yellow 50% 75%, transparent 75%);
+
+    &:hover {
+        background-image: linear-gradient(transparent 50%, $purple 50% 75%, transparent 75%);
+    }
+}
+

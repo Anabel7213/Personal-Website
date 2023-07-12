@@ -1,0 +1,156 @@
+.blog-page {
+    background-color:$beige;
+    footer {
+        border-top:$standard-border;
+        background-color:$off-white;
+    }
+    .blog-page-footer-upper {
+        margin-top:14rem;
+        background-color:$off-white;
+        border-top:$standard-border;
+    }
+    .description {
+        padding-bottom:4.5rem;
+    }
+    .logo-image {
+        width:40px;
+        height:auto;
+    }
+
+    // .one :last-child {
+    //     border-bottom:none;
+    // }
+    .latest-posts {
+        margin-top:14rem;
+        max-width:768px;
+        span {
+            @include marker;
+        }
+    }
+    @media (max-width:992px) {
+        .logo-name {
+            visibility:hidden;
+            display:none !important;
+        }
+        .header {
+            width:100%;
+        }
+    }
+}
+
+//Example-article
+.article-title {
+    font-weight:normal;
+    text-shadow:none;
+}
+article {
+border-top:$standard-border;
+border-bottom:$standard-border;
+background-color: $beige;
+.container {
+    width:70%;
+    margin:14rem auto;
+    transition: all .5s linear;
+    @media (max-width:992px) {
+        width:90%;
+    }
+    .marker {
+        @include marker;
+    }
+}
+.callout {
+    border-left:4px solid $dark-gray;
+}
+li {
+    @include font-md;
+}
+}
+//blog editor
+.input {
+outline:none;
+border:none;
+background-color: transparent;
+white-space:pre-wrap;
+}
+.paragraph {
+width:100%;
+resize:none;
+white-space:pre-wrap;
+}
+//DYNAMIC BLOCKS
+.uploaded-image {
+width:100%;
+}
+.p-margin {
+margin:2rem auto;
+}
+.h-margin {
+margin:1rem auto;
+}
+.box-callout-purple {
+@include font-md;
+background-color:$purple;
+border:$standard-border;
+border-radius:4px;
+padding:2rem;
+}
+.box-callout-yellow {
+@include font-md;
+background-color:#ECDE7D;
+border:$standard-border;
+border-radius:4px;
+padding:2rem;
+}
+.subtle-callout {
+text-align: center;
+@include font-md;
+background-color:#FFFDFA;
+border:$standard-border;
+border-radius:4px;
+padding:4rem;
+}
+.tag-block {
+@include font-md;
+width:fit-content;
+margin:.5rem;
+@include tag (#7DD8EC, #1B7490, rgba(27, 116, 144, 1));
+}
+.quoteBlock {
+@include font-md;
+padding-left:2rem;
+margin:0rem 2rem;
+border-left:4px solid $dark-gray;
+  @media (max-width:576px) {
+    margin:0rem;
+    padding-left:1.5rem;
+  }
+}
+.highlight {
+@include marker;
+@include font-md;
+}
+.underscore {
+text-decoration: underline;
+}
+.anchor-link {
+@include font-md;
+text-decoration: underline;
+}
+.editor-guide {
+    li {
+        @include font-sm;
+        color:rgba(0, 0, 0, 0.5);
+    }
+    .bold {
+        font-weight:600;
+    }
+}
+.guide-container {
+    display:none;
+    transition: all .5s linear;
+}
+.custom-container {
+    margin:5rem 0rem 5rem 5rem;
+    width:800px;
+    transition: all .5s ease;
+}

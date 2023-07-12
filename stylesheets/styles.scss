@@ -1,0 +1,398 @@
+//font-styles
+@import "mixins";
+
+//constant declarations
+.primary-button {
+    @include primary-button;
+}
+.secondary-button {
+    @include secondary-button;
+}
+.tertiary-button {
+    @include tertiary-button;
+}
+
+a {
+    @include link-element;
+}
+p {
+    @include font-md;
+}
+.section {
+    margin: $section-margin; //EXPERIMENTAL
+}
+h1 {
+    @include font-xxxl;
+    text-shadow:6px 6px 0px $light-purple;
+}
+h2 {
+    @include font-xxl;
+}
+h3 {
+    @include font-xl;
+    @media (max-width:768px) {
+        font-size:2rem;
+    }
+}
+h4 {
+    @include font-lg;
+}
+h5 {
+    @include font-md;
+}
+h6 {
+    @include font-sm;
+}
+@media (max-width:768px) {
+    .availability p, .latest-posts h6, .self-development li, .self-development .primary-button, footer span, .skillset-items > div {
+        font-size:1.3rem !important;
+    }
+}
+@media(max-width:992px) {
+    .about-me, .availability, .latest-posts, .self-development {
+        margin:8rem auto !important;
+        max-width:90% !important;
+    }
+    .footer-upper, .footer-middle, .footer-end {
+        margin:2rem auto !important;
+        max-width:90%;
+    }
+}
+@media(max-width:1200px) {
+    .about-me h2, .availability h2, .latest-posts h2, .newsletter h2, .self-development h2 {
+            font-size:3.5rem;
+    }
+}
+//Introduction Section
+body {
+    background-color:$off-white;
+}
+.introduction {
+    margin-bottom:8rem;
+    h3 {
+       @include font-lg;
+    }
+    @media (max-width:768px) {
+        .header {
+            visibility:hidden !important;
+            display:none !important;
+        }
+    }
+    @media (max-width:992px) {
+        margin:1rem auto 8rem auto;
+        max-width:90%;
+    }
+}
+@media (max-width:768px) {
+.small-screen-header {
+        display:block !important;
+        visibility:visible;
+        border-top:$standard-border;
+        border-bottom:$standard-border;
+        a {
+            font-size:1.3rem;
+            padding:1rem 2rem;
+            text-decoration: none;
+            width:100%;
+            &:hover {
+                border-bottom:4px solid $dark-gray;
+                transition: all .5s;
+            }
+        }
+        .middle {
+            border-left:$standard-border;
+            border-right:$standard-border;
+        }
+        .last {
+            background-color: $light-purple;
+            &:hover {
+                background-color: $purple;
+            }
+        }
+}
+}
+@media (max-width:576px) {
+    .small-screen-header {
+        a {
+            padding:1rem;
+        }
+    }
+}
+
+//Sticky Section
+.sticky {
+    @include sticky(sticky, 4rem);
+}
+
+//About-me Section 
+.about-me-bg {
+    background-color:$beige;
+    border-top:$standard-border;
+    border-bottom:$standard-border;
+    .skill-item {
+        @include skill-item;
+    }
+}
+
+//Availability Section 
+.availability-bg {
+    background-color:$purple;
+    position:relative;
+
+    .fixed-button {
+        @include fixed-button(absolute, 98%);
+    }
+    p {
+        @include font-sm;
+    }
+    .card-one{
+        @include card(rotate(-2deg));
+    }
+    .card-two{
+        @include card(rotate(2deg));
+    }
+    .card-three{
+        @include card(rotate(2deg));
+    }
+    .card-four{
+        @include card(rotate(-2deg));
+    }
+    @media (max-width:768px) {
+    .card-four {
+        border-bottom:2px dashed $dark-gray;
+    }
+}
+@media (max-width:1200px) {
+    .card-two, .card-three, .card-four {
+        margin-top:6rem;
+    }
+    .card-three {
+        transform:rotate(-2deg);
+    }
+    .card-four {
+        transform:rotate(2deg);
+    }
+}
+}
+
+//Latest Posts Section
+.major-section-bg {
+    background-color:$beige;
+    border-top:$standard-border;
+    border-bottom:$standard-border;
+}
+.latest-posts {
+    max-width:768px;
+    .single-preview {
+        border-bottom: 2px dashed $dark-gray;
+    }
+    h3 {
+        text-decoration-line: underline;
+        text-decoration-color: $dark-gray;
+        background-image:linear-gradient(transparent 50%, $yellow 50% 75%,transparent 75%);
+        background-size: 0;
+    }
+    h3:hover {
+        cursor: pointer;
+        background-image:linear-gradient(transparent 50%, $yellow 50% 75%,transparent 75%);
+        background-repeat:no-repeat;
+        background-size:100%;
+        transition: background-size .5s linear;
+    }
+    h4 {
+        &:hover {
+            transform:translateY(-4px);
+            transition:all .5s ease-out;
+        }
+        a {
+            @include font-md;
+        }
+    }
+}
+.tags-container {
+    .yellow {
+        @include tag (#DFCE5B, #90821B, rgba(144, 130, 27, 1));
+    }
+    .green {
+        @include tag (#DCEC7D, #5D901B, rgba(93, 144, 27, 1));
+    }
+    .blue {
+        @include tag (#7DD8EC, #1B7490, rgba(27, 116, 144, 1));
+    }
+    .red {
+        @include tag (#EC8A7D, #90451B, rgba(144, 69, 27, 1));
+    }
+    .pink {
+        @include tag (#EA7DEC, #801B90, rgba(128, 27, 144, 1));
+    }
+}
+
+//Newsletter Section
+.newsletter {
+    max-width:1200px;
+    background-color:$off-white;
+    padding:4rem;
+    border-radius:4px;
+    border:$standard-border;
+    @media (max-width:768px) {
+        padding:2rem;
+    }
+
+    .subscribe {
+        color:$pure-black !important;
+        @include primary-button;
+        padding:.7rem 2rem;
+        background-color:$yellow;
+    
+        &:focus {
+            background-color:#DFCE5B;
+        }
+    }
+    .disclaimer {
+        @include font-xs;
+        margin-top:2.5rem;
+    }
+    .form {
+        max-width:600px;
+        padding:$standard-padding;
+        border:$standard-border;
+        border-radius:4px;
+        box-shadow:0px 4px 4px 0px rgba(46, 63, 79, 0.25);
+        margin-bottom:2.5rem;
+
+        input {
+            @include font-md;
+            width:100%;
+            outline:none;
+            border:none;
+        }
+    }
+    @media (max-width:1200px) {
+        border-right:none;
+        border-left:none;
+        border-radius:0%;
+    }
+}
+//Self-development Section
+.self-development {
+    max-width:768px;
+    li {
+        @include font-sm;
+    a {
+        text-decoration: underline;
+        &:hover {
+            background-image:linear-gradient(transparent 50%, $yellow 50% 75%,transparent 75%);
+        }
+    }
+}
+    .lets-connect {
+        background-color:$purple;
+        border:$standard-border;
+        border-radius:4px;
+        padding:2rem;
+        p {
+            @include font-sm;
+        }
+        .primary-button {
+            background-color:$purple;
+            @media (max-width:768px) {
+                width:100%;
+                text-align:center;
+            }
+        }
+    }
+}
+//Footer Section
+footer {
+    border-bottom:$standard-border;
+    .name {
+        @include font-xxl;
+        text-shadow:6px 6px 0px $light-purple;
+    }
+    h4 {
+        @include font-xxl;
+    }
+    h4 span, p {
+        @include font-md;
+    }
+    @media (max-width:768px) {
+        .footer-upper {
+            .text-center {
+                text-align: start !important;
+            }
+            .name br {
+                display:none;
+            }
+            .name, h4 {
+                font-size:2.5rem !important;
+            }
+        }
+    }
+    @media (max-width:992px) {
+        .name, h4 {
+            font-size:3rem !important;
+        }
+        p  {
+            margin-top:1rem;
+            text-align:justify;
+            font-size:1.4rem !important;
+            br {
+                display:none;
+            }
+        }
+        .text-center {
+            text-align: end !important;
+        }
+    }
+    @media (max-width:1200px) {
+        .footer-upper {
+            margin:4rem auto;
+    }
+    .name, h4 {
+        font-size:3.5rem;
+    }
+    p, h4 span {
+        font-size:1.5rem;
+    }
+}
+}
+.footer-middle-bg {
+    background-color:$yellow;
+    border-top:.00001px solid $dark-gray;
+    border-bottom:$standard-border;
+    a:hover {
+        transform:translateY(-4px);
+        transition:all .3s;
+        text-decoration: none;
+        border-bottom:$standard-border;
+        box-shadow:0px 4px 0px 0px $purple;
+    }
+    @media (max-width:768px) {
+        .footer-middle {
+            display:flex;
+            column-gap:2rem !important;
+            justify-content: flex-start !important;
+        }
+    }
+    @media (max-width:1200px) {
+        .footer-middle h6 {
+            font-size:1.3rem;
+        }
+    }
+}
+.footer-end-bg {
+    background-color:$purple;
+    border-top:.00001px solid $dark-gray;
+    border-bottom:$standard-border;
+    @media (max-width:768px) {
+        h6 {
+            font-size:1rem !important;
+        }
+    }
+}
+
+//Blog 
+@import "blog";
+
+//Hire Me
+@import "hire";
