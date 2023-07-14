@@ -1,7 +1,9 @@
 # Personal Website
 
-This is my personal website that I built when I just started learning programming, so it evolved from being a static HTML CSS webpage to featuring a fully functional blog editor, databases, and Mailchimp. 
+This is my personal website that I first created when I just started learning programming. Since then, it has evolved from a basic static HTML CSS webpage to a comprehensive platform with features like a fully functional blog editor, databases, and Mailchimp integration.
 
-Built with Node.JS, EJS, and Express.JS using some advanced techniques like route mounting and MVC. The newsletter form runs with Mailchimp API behind the scenes sending subscribers data. 
+The website is built using Node.js, EJS, and Express.js, employing advanced techniques such as route mounting and the MVC architecture. The newsletter form interacts with the Mailchimp API to handle subscriber data in the background.
 
-The blog editor is meant to only be accessed by the owner of the website (myself) and is therefore a hidden path. It offers a number of different blocks to build an article. I was first thinking to make it into a drag and drop editor but figured a less time consuming approach where a number of special symbols corresponds to a certain block and triggers it's appearance on screen when typed in the beginning of any text. This allows for the creation of customized articles with different layouts without excessive complexity to the functionality. It runs on MongoDB Atlas and is able to fetch (all or by id), create, and delete blog posts with Mongoose.
+The blog editor is designed to be accessible only by the website owner (myself) and is hidden from public access. It offers various blocks to construct an article. Instead of a drag-and-drop-like editor I came up with a simpler and less time consuming approach, and used special symbols to represent specific blocks, which are triggered and displayed on the screen if a corresponding symbol is typed at the beginning of a text. This allows for the creation of customized articles with different layouts without adding excessive complexity to the functionality.
+
+The blog editor is powered by MongoDB Atlas, enabling operations such as fetching (all or by ID), creating, and deleting blog posts using Mongoose.
